@@ -1,0 +1,466 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"6 sys_tick.c
+[; ;sys_tick.c: 6:     struct {
+[s S56 :3 `uc 1 :5 `uc 1 ]
+[n S56 . _handler_index _reserved ]
+"13
+[; ;sys_tick.c: 13:         struct {
+[s S58 :1 `uc 1 :1 `uc 1 :3 `uc 1 :3 `uc 1 ]
+[n S58 . _en _periodic _handle _reserved ]
+[v F786 `(v ~T0 @X0 0 tf ]
+"11
+[; ;sys_tick.c: 11:     struct {
+[s S57 `S58 1 `ul 1 `ul 1 `*F786 1 ]
+[n S57 . . trigger_tick counter_tick cb ]
+"4
+[; ;sys_tick.c: 4: struct {
+[s S55 `S56 1 `S57 -> 2 `i `ul 1 ]
+[n S55 . . _handle tick ]
+"446 C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 446: extern volatile unsigned short TMR1 __attribute__((address(0x00E)));
+[v _TMR1 `Vus ~T0 @X0 0 e@14 ]
+"473
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 473:     struct {
+[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
+[n S17 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS ]
+"480
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 480:     struct {
+[s S18 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S18 . . T1CKPS0 T1CKPS1 ]
+"472
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 472: typedef union {
+[u S16 `S17 1 `S18 1 ]
+[n S16 . . . ]
+"486
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 486: extern volatile T1CONbits_t T1CONbits __attribute__((address(0x010)));
+[v _T1CONbits `VS16 ~T0 @X0 0 e@16 ]
+[v F752 `(v ~T0 @X0 0 tf ]
+"30 ./it_handle.h
+[; ;./it_handle.h: 30:     void timer1_add_isr_handler(timer1_isr_t handler);
+[v _timer1_add_isr_handler `(v ~T0 @X0 0 ef1`*F752 ]
+[v F797 `(v ~T0 @X0 0 tf ]
+[v F799 `(v ~T0 @X0 0 tf ]
+"20 ./main.h
+[p x FOSC  =  INTOSCIO   ]
+"21
+[p x WDTE  =  OFF        ]
+"22
+[p x PWRTE  =  OFF       ]
+"23
+[p x MCLRE  =  ON        ]
+"24
+[p x BOREN  =  OFF       ]
+"25
+[p x LVP  =  OFF         ]
+"26
+[p x CPD  =  OFF         ]
+"27
+[p x CP  =  OFF          ]
+"55 C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"231
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 231: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"293
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 293: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"313
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 313: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"391
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 391: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"448
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 448: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"455
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 455: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"462
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 462: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"469
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 469: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"528
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 528: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"535
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 535: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"606
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 606: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"613
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 613: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"620
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 620: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"627
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 627: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"685
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 685: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"756
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 756: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"763
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 763: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"770
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 770: __asm("CMCON equ 01Fh");
+[; <" CMCON equ 01Fh ;# ">
+"840
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 840: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"910
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 910: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"972
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 972: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1034
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1034: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1091
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1091: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1140
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1140: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"1147
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1147: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"1204
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1204: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"1211
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1211: __asm("EEDATA equ 09Ah");
+[; <" EEDATA equ 09Ah ;# ">
+"1218
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1218: __asm("EEADR equ 09Bh");
+[; <" EEADR equ 09Bh ;# ">
+"1225
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1225: __asm("EECON1 equ 09Ch");
+[; <" EECON1 equ 09Ch ;# ">
+"1263
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1263: __asm("EECON2 equ 09Dh");
+[; <" EECON2 equ 09Dh ;# ">
+"1270
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1270: __asm("VRCON equ 09Fh");
+[; <" VRCON equ 09Fh ;# ">
+"25 sys_tick.c
+[; ;sys_tick.c: 25: } _sys_tick;
+[v __sys_tick `S55 ~T0 @X0 1 e ]
+"27
+[; ;sys_tick.c: 27: void sys_tick_handler(void) {
+[v _sys_tick_handler `(v ~T0 @X0 1 ef ]
+{
+[e :U _sys_tick_handler ]
+[f ]
+"29
+[; ;sys_tick.c: 29:     TMR1 = (65535U) - 50000U;
+[e = _TMR1 -> - -> 65535 `ui -> 50000 `ui `us ]
+"30
+[; ;sys_tick.c: 30:     _sys_tick.tick++;
+[e ++ . __sys_tick 2 -> -> -> 1 `i `l `ul ]
+"32
+[; ;sys_tick.c: 32:     for (uint8_t i = 0; i < _sys_tick._handler_index; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 63  ]
+[e :U 60 ]
+{
+"33
+[; ;sys_tick.c: 33:         _sys_tick._handle[i].counter_tick++;
+[e ++ . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 2 -> -> -> 1 `i `l `ul ]
+"34
+[; ;sys_tick.c: 34:         if (_sys_tick._handle[i]._en) {
+[e $ ! != -> . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 0 `i -> 0 `i 64  ]
+{
+"35
+[; ;sys_tick.c: 35:             if (_sys_tick._handle[i].counter_tick
+[e $ ! >= . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 2 . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 1 65  ]
+"36
+[; ;sys_tick.c: 36:                 >= _sys_tick._handle[i].trigger_tick) {
+{
+"37
+[; ;sys_tick.c: 37:                 _sys_tick._handle[i].counter_tick = 0;
+[e = . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 2 -> -> -> 0 `i `l `ul ]
+"38
+[; ;sys_tick.c: 38:                 _sys_tick._handle[i].cb();
+[e ( *U . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 3 ..  ]
+"39
+[; ;sys_tick.c: 39:                 if (!_sys_tick._handle[i]._periodic)
+[e $ ! ! != -> . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 1 `i -> 0 `i 66  ]
+"40
+[; ;sys_tick.c: 40:                     _sys_tick._handle[i]._en = 0;
+[e = . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 0 -> -> 0 `i `uc ]
+[e :U 66 ]
+"41
+[; ;sys_tick.c: 41:             }
+}
+[e :U 65 ]
+"42
+[; ;sys_tick.c: 42:         }
+}
+[e :U 64 ]
+"43
+[; ;sys_tick.c: 43:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 63 ]
+[e $ < -> _i `i -> . . __sys_tick 0 0 `i 60  ]
+[e :U 61 ]
+}
+"44
+[; ;sys_tick.c: 44: }
+[e :UE 59 ]
+}
+"46
+[; ;sys_tick.c: 46: void sys_tick_init(void) {
+[v _sys_tick_init `(v ~T0 @X0 1 ef ]
+{
+[e :U _sys_tick_init ]
+[f ]
+"51
+[; ;sys_tick.c: 51:     T1CONbits.T1CKPS = 0b01;
+[e = . . _T1CONbits 0 4 -> -> 1 `i `uc ]
+"54
+[; ;sys_tick.c: 54:     T1CONbits.TMR1CS = 0;
+[e = . . _T1CONbits 0 1 -> -> 0 `i `uc ]
+"55
+[; ;sys_tick.c: 55:     TMR1 = (65535U) - 50000U;
+[e = _TMR1 -> - -> 65535 `ui -> 50000 `ui `us ]
+"56
+[; ;sys_tick.c: 56:     timer1_add_isr_handler(sys_tick_handler);
+[e ( _timer1_add_isr_handler (1 &U _sys_tick_handler ]
+"57
+[; ;sys_tick.c: 57:     T1CONbits.TMR1ON = 1;
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+"58
+[; ;sys_tick.c: 58:     _sys_tick.tick = 0;
+[e = . __sys_tick 2 -> -> -> 0 `i `l `ul ]
+"59
+[; ;sys_tick.c: 59:     _sys_tick._handler_index = 0;
+[e = . . __sys_tick 0 0 -> -> 0 `i `uc ]
+"60
+[; ;sys_tick.c: 60: }
+[e :UE 67 ]
+}
+"62
+[; ;sys_tick.c: 62: sys_tick_t sys_tick_get_tick(void) {
+[v _sys_tick_get_tick `(ul ~T0 @X0 1 ef ]
+{
+[e :U _sys_tick_get_tick ]
+[f ]
+"63
+[; ;sys_tick.c: 63:     return _sys_tick.tick;
+[e ) . __sys_tick 2 ]
+[e $UE 68  ]
+"64
+[; ;sys_tick.c: 64: }
+[e :UE 68 ]
+}
+"66
+[; ;sys_tick.c: 66: sys_tick_handle_t sys_tick_register_callback_handler(sys_tick_cb_t cb) {
+[v _sys_tick_register_callback_handler `(uc ~T0 @X0 1 ef1`*F797 ]
+{
+[e :U _sys_tick_register_callback_handler ]
+[v _cb `*F799 ~T0 @X0 1 r1 ]
+[f ]
+"67
+[; ;sys_tick.c: 67:     uint8_t _handler_index = _sys_tick._handler_index;
+[v __handler_index `uc ~T0 @X0 1 a ]
+[e = __handler_index . . __sys_tick 0 0 ]
+"68
+[; ;sys_tick.c: 68:     if (_handler_index < 2) {
+[e $ ! < -> __handler_index `i -> 2 `i 70  ]
+{
+"69
+[; ;sys_tick.c: 69:         _sys_tick._handle[_handler_index].cb = cb;
+[e = . *U + &U . __sys_tick 1 * -> __handler_index `ux -> -> # *U &U . __sys_tick 1 `ui `ux 3 _cb ]
+"70
+[; ;sys_tick.c: 70:         _sys_tick._handle[_handler_index]._en = 0;
+[e = . . *U + &U . __sys_tick 1 * -> __handler_index `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 0 -> -> 0 `i `uc ]
+"71
+[; ;sys_tick.c: 71:         _sys_tick._handle[_handler_index]._handle = _handler_index;
+[e = . . *U + &U . __sys_tick 1 * -> __handler_index `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 2 __handler_index ]
+"72
+[; ;sys_tick.c: 72:         _sys_tick._handler_index++;
+[e ++ . . __sys_tick 0 0 -> -> 1 `i `uc ]
+"73
+[; ;sys_tick.c: 73:         return _sys_tick._handle[_handler_index]._handle;
+[e ) . . *U + &U . __sys_tick 1 * -> __handler_index `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 2 ]
+[e $UE 69  ]
+"74
+[; ;sys_tick.c: 74:     } else return 0xFF;
+}
+[e $U 71  ]
+[e :U 70 ]
+[e ) -> -> 255 `i `uc ]
+[e $UE 69  ]
+[e :U 71 ]
+"75
+[; ;sys_tick.c: 75: }
+[e :UE 69 ]
+}
+"77
+[; ;sys_tick.c: 77: void sys_tick_start_oneshot(sys_tick_handle_t handle, sys_tick_t tick) {
+[v _sys_tick_start_oneshot `(v ~T0 @X0 1 ef2`uc`ul ]
+{
+[e :U _sys_tick_start_oneshot ]
+[v _handle `uc ~T0 @X0 1 r1 ]
+[v _tick `ul ~T0 @X0 1 r2 ]
+[f ]
+"78
+[; ;sys_tick.c: 78:     for (uint8_t i = 0; i < _sys_tick._handler_index; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 76  ]
+[e :U 73 ]
+{
+"79
+[; ;sys_tick.c: 79:         if (_sys_tick._handle[i]._handle == handle) {
+[e $ ! == -> . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 2 `i -> _handle `i 77  ]
+{
+"80
+[; ;sys_tick.c: 80:             _sys_tick._handle[i].trigger_tick = tick;
+[e = . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 1 _tick ]
+"81
+[; ;sys_tick.c: 81:             _sys_tick._handle[i].counter_tick = 0;
+[e = . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 2 -> -> -> 0 `i `l `ul ]
+"82
+[; ;sys_tick.c: 82:             _sys_tick._handle[i]._periodic = 0;
+[e = . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 1 -> -> 0 `i `uc ]
+"83
+[; ;sys_tick.c: 83:             _sys_tick._handle[i]._en = 1;
+[e = . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 0 -> -> 1 `i `uc ]
+"84
+[; ;sys_tick.c: 84:         }
+}
+[e :U 77 ]
+"85
+[; ;sys_tick.c: 85:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 76 ]
+[e $ < -> _i `i -> . . __sys_tick 0 0 `i 73  ]
+[e :U 74 ]
+}
+"86
+[; ;sys_tick.c: 86: }
+[e :UE 72 ]
+}
+"88
+[; ;sys_tick.c: 88: void sys_tick_start_periodic(sys_tick_handle_t handle, sys_tick_t tick) {
+[v _sys_tick_start_periodic `(v ~T0 @X0 1 ef2`uc`ul ]
+{
+[e :U _sys_tick_start_periodic ]
+[v _handle `uc ~T0 @X0 1 r1 ]
+[v _tick `ul ~T0 @X0 1 r2 ]
+[f ]
+"89
+[; ;sys_tick.c: 89:     for (uint8_t i = 0; i < _sys_tick._handler_index; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 82  ]
+[e :U 79 ]
+{
+"90
+[; ;sys_tick.c: 90:         if (_sys_tick._handle[i]._handle == handle) {
+[e $ ! == -> . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 2 `i -> _handle `i 83  ]
+{
+"91
+[; ;sys_tick.c: 91:             _sys_tick._handle[i].trigger_tick = tick;
+[e = . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 1 _tick ]
+"92
+[; ;sys_tick.c: 92:             _sys_tick._handle[i].counter_tick = 0;
+[e = . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 2 -> -> -> 0 `i `l `ul ]
+"93
+[; ;sys_tick.c: 93:             _sys_tick._handle[i]._periodic = 1;
+[e = . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 1 -> -> 1 `i `uc ]
+"94
+[; ;sys_tick.c: 94:             _sys_tick._handle[i]._en = 1;
+[e = . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 0 -> -> 1 `i `uc ]
+"95
+[; ;sys_tick.c: 95:             return;
+[e $UE 78  ]
+"96
+[; ;sys_tick.c: 96:         }
+}
+[e :U 83 ]
+"97
+[; ;sys_tick.c: 97:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 82 ]
+[e $ < -> _i `i -> . . __sys_tick 0 0 `i 79  ]
+[e :U 80 ]
+}
+"98
+[; ;sys_tick.c: 98: }
+[e :UE 78 ]
+}
+"100
+[; ;sys_tick.c: 100: void sys_tick_stop(sys_tick_handle_t handle) {
+[v _sys_tick_stop `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _sys_tick_stop ]
+[v _handle `uc ~T0 @X0 1 r1 ]
+[f ]
+"101
+[; ;sys_tick.c: 101:     for (uint8_t i = 0; i < _sys_tick._handler_index; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 88  ]
+[e :U 85 ]
+{
+"102
+[; ;sys_tick.c: 102:         if (_sys_tick._handle[i]._handle == handle) {
+[e $ ! == -> . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 2 `i -> _handle `i 89  ]
+{
+"103
+[; ;sys_tick.c: 103:             _sys_tick._handle[i]._en = 0;
+[e = . . *U + &U . __sys_tick 1 * -> _i `ux -> -> # *U &U . __sys_tick 1 `ui `ux 0 0 -> -> 0 `i `uc ]
+"104
+[; ;sys_tick.c: 104:             return;
+[e $UE 84  ]
+"105
+[; ;sys_tick.c: 105:         }
+}
+[e :U 89 ]
+"106
+[; ;sys_tick.c: 106:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 88 ]
+[e $ < -> _i `i -> . . __sys_tick 0 0 `i 85  ]
+[e :U 86 ]
+}
+"107
+[; ;sys_tick.c: 107: }
+[e :UE 84 ]
+}

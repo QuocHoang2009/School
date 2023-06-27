@@ -1,0 +1,942 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F795 `(v ~T0 @X0 0 tf3`ui`*uc`uc ]
+"16 zb_znp.c
+[; ;zb_znp.c: 16: } znp_state = SOP_STATE;
+[c E799 0 1 2 3 4 5 .. ]
+[n E799 . SOP_STATE LEN_STATE CMD0_STATE CMD1_STATE DATA_STATE FCS_STATE  ]
+"111 ./zb_znp.h
+[; ;./zb_znp.h: 111:     typedef struct {
+[s S55 `uc 1 `uc 1 `uc 1 `uc -> 30 `i ]
+[n S55 . len cmd0 cmd1 data ]
+"81 zb_znp.c
+[; ;zb_znp.c: 81: void znp_usart_event_handler(usart_event_t rx_event, void* event_data) {
+[c E748 0 1 .. ]
+[n E748 . USART_RX_DATA USART_RX_CMPLT  ]
+"18 ./usart.h
+[; ;./usart.h: 18:     void usart_send(uint8_t c);
+[v _usart_send `(v ~T0 @X0 0 ef1`uc ]
+"126 ./zb_znp.h
+[; ;./zb_znp.h: 126:     void znp_hard_reset(void);
+[v _znp_hard_reset `(v ~T0 @X0 0 ef ]
+[v F827 `(v ~T0 @X0 0 tf3`ui`*uc`uc ]
+[v F832 `(v ~T0 @X0 0 tf3`ui`*uc`uc ]
+"976 C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 976:     struct {
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"975
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 975: typedef union {
+[u S36 `S37 1 ]
+[n S36 . . ]
+"987
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 987: extern volatile TRISBbits_t TRISBbits __attribute__((address(0x086)));
+[v _TRISBbits `VS36 ~T0 @X0 0 e@134 ]
+"235
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 235:     struct {
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"234
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 234: typedef union {
+[u S7 `S8 1 ]
+[n S7 . . ]
+"246
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 246: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
+"17 ./usart.h
+[; ;./usart.h: 17:     void usart_init(void);
+[v _usart_init `(v ~T0 @X0 0 ef ]
+[v F767 `(v ~T0 @X0 0 tf2`E748`*v ]
+"29 ./it_handle.h
+[; ;./it_handle.h: 29:     void usart_add_isr_handler(usart_rx_isr_t handler);
+[v _usart_add_isr_handler `(v ~T0 @X0 0 ef1`*F767 ]
+[v F38 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\builtins.h
+[v __delay `JF38 ~T0 @X0 0 e ]
+[p i __delay ]
+"235 zb_znp.c
+[; ;zb_znp.c: 235: void znp_router_start(znp_router_start_opt_t start_opt) {
+[c E716 0 1 .. ]
+[n E716 . ROUTER_START_NEW_NETWORK ROUTER_START_REJOIN  ]
+"20 ./main.h
+[p x FOSC  =  INTOSCIO   ]
+"21
+[p x WDTE  =  OFF        ]
+"22
+[p x PWRTE  =  OFF       ]
+"23
+[p x MCLRE  =  ON        ]
+"24
+[p x BOREN  =  OFF       ]
+"25
+[p x LVP  =  OFF         ]
+"26
+[p x CPD  =  OFF         ]
+"27
+[p x CP  =  OFF          ]
+"55 C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"231
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 231: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"293
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 293: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"313
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 313: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"391
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 391: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"448
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 448: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"455
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 455: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"462
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 462: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"469
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 469: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"528
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 528: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"535
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 535: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"606
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 606: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"613
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 613: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"620
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 620: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"627
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 627: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"685
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 685: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"756
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 756: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"763
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 763: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"770
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 770: __asm("CMCON equ 01Fh");
+[; <" CMCON equ 01Fh ;# ">
+"840
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 840: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"910
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 910: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"972
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 972: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1034
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1034: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1091
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1091: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1140
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1140: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"1147
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1147: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"1204
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1204: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"1211
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1211: __asm("EEDATA equ 09Ah");
+[; <" EEDATA equ 09Ah ;# ">
+"1218
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1218: __asm("EEADR equ 09Bh");
+[; <" EEADR equ 09Bh ;# ">
+"1225
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1225: __asm("EECON1 equ 09Ch");
+[; <" EECON1 equ 09Ch ;# ">
+"1263
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1263: __asm("EECON2 equ 09Dh");
+[; <" EECON2 equ 09Dh ;# ">
+"1270
+[; ;C:/Users/Admin/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f628a.h: 1270: __asm("VRCON equ 09Fh");
+[; <" VRCON equ 09Fh ;# ">
+"7 zb_znp.c
+[; ;zb_znp.c: 7: static znp_msg_cb_t _zb_znp_cb;
+[v __zb_znp_cb `*F795 ~T0 @X0 1 s ]
+"16
+[; ;zb_znp.c: 16: } znp_state = SOP_STATE;
+[v _znp_state `E799 ~T0 @X0 1 e ]
+[i _znp_state
+. `E799 0
+]
+"18
+[; ;zb_znp.c: 18: znp_msg_t znp_recv_msg;
+[v _znp_recv_msg `S55 ~T0 @X0 1 e ]
+"19
+[; ;zb_znp.c: 19: uint16_t last_cmd_rcv;
+[v _last_cmd_rcv `ui ~T0 @X0 1 e ]
+"21
+[; ;zb_znp.c: 21: void wait_for_msg(uint16_t cmd) {
+[v _wait_for_msg `(v ~T0 @X0 1 ef1`ui ]
+{
+[e :U _wait_for_msg ]
+[v _cmd `ui ~T0 @X0 1 r1 ]
+[f ]
+"22
+[; ;zb_znp.c: 22:     while (last_cmd_rcv != cmd);
+[e $U 57  ]
+[e :U 58 ]
+[e :U 57 ]
+[e $ != _last_cmd_rcv _cmd 58  ]
+[e :U 59 ]
+"23
+[; ;zb_znp.c: 23:     last_cmd_rcv = 0x00;
+[e = _last_cmd_rcv -> -> 0 `i `ui ]
+"24
+[; ;zb_znp.c: 24: }
+[e :UE 56 ]
+}
+"26
+[; ;zb_znp.c: 26: void wait_for_status(uint16_t cmd, uint8_t offset, uint8_t status_to_wait) {
+[v _wait_for_status `(v ~T0 @X0 1 ef3`ui`uc`uc ]
+{
+[e :U _wait_for_status ]
+[v _cmd `ui ~T0 @X0 1 r1 ]
+[v _offset `uc ~T0 @X0 1 r2 ]
+[v _status_to_wait `uc ~T0 @X0 1 r3 ]
+[f ]
+"27
+[; ;zb_znp.c: 27:     do {
+[e :U 63 ]
+{
+"28
+[; ;zb_znp.c: 28:         wait_for_msg(cmd);
+[e ( _wait_for_msg (1 _cmd ]
+"29
+[; ;zb_znp.c: 29:     } while (znp_recv_msg.data[offset] != status_to_wait);
+}
+[e $ != -> *U + &U . _znp_recv_msg 3 * -> _offset `ux -> -> # *U &U . _znp_recv_msg 3 `ui `ux `i -> _status_to_wait `i 63  ]
+[e :U 62 ]
+"30
+[; ;zb_znp.c: 30: }
+[e :UE 60 ]
+}
+"32
+[; ;zb_znp.c: 32: void znp_frame_parser(uint8_t ch) {
+[v _znp_frame_parser `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _znp_frame_parser ]
+[v _ch `uc ~T0 @X0 1 r1 ]
+[f ]
+"33
+[; ;zb_znp.c: 33:     static uint8_t znp_fcs, rcv_index;
+[v F817 `uc ~T0 @X0 1 s znp_fcs ]
+[v F818 `uc ~T0 @X0 1 s rcv_index ]
+"35
+[; ;zb_znp.c: 35:     switch (znp_state) {
+[e $U 66  ]
+{
+"36
+[; ;zb_znp.c: 36:         case SOP_STATE:
+[e :U 67 ]
+"37
+[; ;zb_znp.c: 37:             if (ch == 0xFE) {
+[e $ ! == -> _ch `i -> 254 `i 68  ]
+{
+"38
+[; ;zb_znp.c: 38:                 znp_fcs = 0;
+[e = F817 -> -> 0 `i `uc ]
+"39
+[; ;zb_znp.c: 39:                 rcv_index = 0;
+[e = F818 -> -> 0 `i `uc ]
+"40
+[; ;zb_znp.c: 40:                 znp_state = LEN_STATE;
+[e = _znp_state . `E799 1 ]
+"41
+[; ;zb_znp.c: 41:             }
+}
+[e :U 68 ]
+"42
+[; ;zb_znp.c: 42:             break;
+[e $U 65  ]
+"43
+[; ;zb_znp.c: 43:         case LEN_STATE:
+[e :U 69 ]
+"44
+[; ;zb_znp.c: 44:             znp_recv_msg.len = ch;
+[e = . _znp_recv_msg 0 _ch ]
+"45
+[; ;zb_znp.c: 45:             znp_fcs ^= ch;
+[e =^ F817 -> _ch `uc ]
+"46
+[; ;zb_znp.c: 46:             znp_state = CMD0_STATE;
+[e = _znp_state . `E799 2 ]
+"47
+[; ;zb_znp.c: 47:             break;
+[e $U 65  ]
+"48
+[; ;zb_znp.c: 48:         case CMD0_STATE:
+[e :U 70 ]
+"49
+[; ;zb_znp.c: 49:             znp_recv_msg.cmd0 = ch;
+[e = . _znp_recv_msg 1 _ch ]
+"50
+[; ;zb_znp.c: 50:             znp_fcs ^= ch;
+[e =^ F817 -> _ch `uc ]
+"51
+[; ;zb_znp.c: 51:             znp_state = CMD1_STATE;
+[e = _znp_state . `E799 3 ]
+"52
+[; ;zb_znp.c: 52:             break;
+[e $U 65  ]
+"53
+[; ;zb_znp.c: 53:         case CMD1_STATE:
+[e :U 71 ]
+"54
+[; ;zb_znp.c: 54:             znp_recv_msg.cmd1 = ch;
+[e = . _znp_recv_msg 2 _ch ]
+"55
+[; ;zb_znp.c: 55:             znp_fcs ^= ch;
+[e =^ F817 -> _ch `uc ]
+"56
+[; ;zb_znp.c: 56:             znp_state = (znp_recv_msg.len > 0) ? DATA_STATE : FCS_STATE;
+[e = _znp_state -> ? > -> . _znp_recv_msg 0 `i -> 0 `i : . `E799 4 . `E799 5 `E799 ]
+"57
+[; ;zb_znp.c: 57:             break;
+[e $U 65  ]
+"58
+[; ;zb_znp.c: 58:         case DATA_STATE:
+[e :U 72 ]
+"59
+[; ;zb_znp.c: 59:             znp_recv_msg.data[rcv_index++] = ch;
+[e = *U + &U . _znp_recv_msg 3 * -> ++ F818 -> -> 1 `i `uc `ux -> -> # *U &U . _znp_recv_msg 3 `ui `ux _ch ]
+"60
+[; ;zb_znp.c: 60:             znp_fcs ^= ch;
+[e =^ F817 -> _ch `uc ]
+"61
+[; ;zb_znp.c: 61:             if (rcv_index == znp_recv_msg.len)
+[e $ ! == -> F818 `i -> . _znp_recv_msg 0 `i 73  ]
+"62
+[; ;zb_znp.c: 62:                 znp_state = FCS_STATE;
+[e = _znp_state . `E799 5 ]
+[e :U 73 ]
+"63
+[; ;zb_znp.c: 63:             break;
+[e $U 65  ]
+"64
+[; ;zb_znp.c: 64:         case FCS_STATE:
+[e :U 74 ]
+"65
+[; ;zb_znp.c: 65:             if (znp_fcs == ch) {
+[e $ ! == -> F817 `i -> _ch `i 75  ]
+{
+"66
+[; ;zb_znp.c: 66:                 last_cmd_rcv
+[e = _last_cmd_rcv -> + & -> . _znp_recv_msg 2 `i -> 255 `i << & -> . _znp_recv_msg 1 `i -> 255 `i -> 8 `i `ui ]
+"68
+[; ;zb_znp.c: 68:                 _zb_znp_cb(
+[e ( *U __zb_znp_cb (3 , , _last_cmd_rcv &U . _znp_recv_msg 3 . _znp_recv_msg 0 ]
+"73
+[; ;zb_znp.c: 73:             }
+}
+[e :U 75 ]
+"74
+[; ;zb_znp.c: 74:             znp_state = SOP_STATE;
+[e = _znp_state . `E799 0 ]
+"75
+[; ;zb_znp.c: 75:             break;
+[e $U 65  ]
+"76
+[; ;zb_znp.c: 76:         default:
+[e :U 76 ]
+"77
+[; ;zb_znp.c: 77:             break;
+[e $U 65  ]
+"78
+[; ;zb_znp.c: 78:     }
+}
+[e $U 65  ]
+[e :U 66 ]
+[e [\ -> _znp_state `ui , $ -> . `E799 0 `ui 67
+ , $ -> . `E799 1 `ui 69
+ , $ -> . `E799 2 `ui 70
+ , $ -> . `E799 3 `ui 71
+ , $ -> . `E799 4 `ui 72
+ , $ -> . `E799 5 `ui 74
+ 76 ]
+[e :U 65 ]
+"79
+[; ;zb_znp.c: 79: }
+[e :UE 64 ]
+}
+"81
+[; ;zb_znp.c: 81: void znp_usart_event_handler(usart_event_t rx_event, void* event_data) {
+[v _znp_usart_event_handler `(v ~T0 @X0 1 ef2`E748`*v ]
+{
+[e :U _znp_usart_event_handler ]
+[v _rx_event `E748 ~T0 @X0 1 r1 ]
+[v _event_data `*v ~T0 @X0 1 r2 ]
+[f ]
+"82
+[; ;zb_znp.c: 82:     switch (rx_event) {
+[e $U 79  ]
+{
+"83
+[; ;zb_znp.c: 83:         case USART_RX_DATA:
+[e :U 80 ]
+"84
+[; ;zb_znp.c: 84:             znp_frame_parser(*(uint8_t*) event_data);
+[e ( _znp_frame_parser (1 *U -> _event_data `*uc ]
+"85
+[; ;zb_znp.c: 85:             break;
+[e $U 78  ]
+"86
+[; ;zb_znp.c: 86:         case USART_RX_CMPLT:
+[e :U 81 ]
+"87
+[; ;zb_znp.c: 87:             znp_state = SOP_STATE;
+[e = _znp_state . `E799 0 ]
+"88
+[; ;zb_znp.c: 88:             break;
+[e $U 78  ]
+"89
+[; ;zb_znp.c: 89:         default:
+[e :U 82 ]
+"90
+[; ;zb_znp.c: 90:             break;
+[e $U 78  ]
+"91
+[; ;zb_znp.c: 91:     }
+}
+[e $U 78  ]
+[e :U 79 ]
+[e [\ -> _rx_event `ui , $ -> . `E748 0 `ui 80
+ , $ -> . `E748 1 `ui 81
+ 82 ]
+[e :U 78 ]
+"92
+[; ;zb_znp.c: 92: }
+[e :UE 77 ]
+}
+"94
+[; ;zb_znp.c: 94: void znp_set_startopt(uint8_t startopt) {
+[v _znp_set_startopt `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _znp_set_startopt ]
+[v _startopt `uc ~T0 @X0 1 r1 ]
+[f ]
+"95
+[; ;zb_znp.c: 95:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"96
+[; ;zb_znp.c: 96:     usart_send(0x05);
+[e ( _usart_send (1 -> -> 5 `i `uc ]
+"97
+[; ;zb_znp.c: 97:     usart_send(0x21);
+[e ( _usart_send (1 -> -> 33 `i `uc ]
+"98
+[; ;zb_znp.c: 98:     usart_send(0x09);
+[e ( _usart_send (1 -> -> 9 `i `uc ]
+"99
+[; ;zb_znp.c: 99:     usart_send(0x03);
+[e ( _usart_send (1 -> -> 3 `i `uc ]
+"100
+[; ;zb_znp.c: 100:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"101
+[; ;zb_znp.c: 101:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"102
+[; ;zb_znp.c: 102:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"103
+[; ;zb_znp.c: 103:     usart_send(startopt);
+[e ( _usart_send (1 _startopt ]
+"104
+[; ;zb_znp.c: 104:     usart_send(0x2F ^ startopt);
+[e ( _usart_send (1 -> ^ -> 47 `i -> _startopt `i `uc ]
+"105
+[; ;zb_znp.c: 105:     wait_for_status(0x6109, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 24841 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"107
+[; ;zb_znp.c: 107:     znp_hard_reset();
+[e ( _znp_hard_reset ..  ]
+"108
+[; ;zb_znp.c: 108: }
+[e :UE 83 ]
+}
+"110
+[; ;zb_znp.c: 110: void znp_set_logical_type(void) {
+[v _znp_set_logical_type `(v ~T0 @X0 1 ef ]
+{
+[e :U _znp_set_logical_type ]
+[f ]
+"111
+[; ;zb_znp.c: 111:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"112
+[; ;zb_znp.c: 112:     usart_send(0x05);
+[e ( _usart_send (1 -> -> 5 `i `uc ]
+"113
+[; ;zb_znp.c: 113:     usart_send(0x21);
+[e ( _usart_send (1 -> -> 33 `i `uc ]
+"114
+[; ;zb_znp.c: 114:     usart_send(0x09);
+[e ( _usart_send (1 -> -> 9 `i `uc ]
+"115
+[; ;zb_znp.c: 115:     usart_send(0x87);
+[e ( _usart_send (1 -> -> 135 `i `uc ]
+"116
+[; ;zb_znp.c: 116:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"117
+[; ;zb_znp.c: 117:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"118
+[; ;zb_znp.c: 118:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"119
+[; ;zb_znp.c: 119:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"120
+[; ;zb_znp.c: 120:     usart_send(0xAA);
+[e ( _usart_send (1 -> -> 170 `i `uc ]
+"121
+[; ;zb_znp.c: 121:     wait_for_status(0x6109, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 24841 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"122
+[; ;zb_znp.c: 122: }
+[e :UE 84 ]
+}
+"124
+[; ;zb_znp.c: 124: void znp_set_channels(void) {
+[v _znp_set_channels `(v ~T0 @X0 1 ef ]
+{
+[e :U _znp_set_channels ]
+[f ]
+"125
+[; ;zb_znp.c: 125:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"126
+[; ;zb_znp.c: 126:     usart_send(0x05);
+[e ( _usart_send (1 -> -> 5 `i `uc ]
+"127
+[; ;zb_znp.c: 127:     usart_send(0x2F);
+[e ( _usart_send (1 -> -> 47 `i `uc ]
+"128
+[; ;zb_znp.c: 128:     usart_send(0x08);
+[e ( _usart_send (1 -> -> 8 `i `uc ]
+"129
+[; ;zb_znp.c: 129:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"130
+[; ;zb_znp.c: 130:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"131
+[; ;zb_znp.c: 131:     usart_send(0x20);
+[e ( _usart_send (1 -> -> 32 `i `uc ]
+"132
+[; ;zb_znp.c: 132:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"133
+[; ;zb_znp.c: 133:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"134
+[; ;zb_znp.c: 134:     usart_send(0x03);
+[e ( _usart_send (1 -> -> 3 `i `uc ]
+"135
+[; ;zb_znp.c: 135:     wait_for_status(0x6F08, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 28424 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"137
+[; ;zb_znp.c: 137:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"138
+[; ;zb_znp.c: 138:     usart_send(0x05);
+[e ( _usart_send (1 -> -> 5 `i `uc ]
+"139
+[; ;zb_znp.c: 139:     usart_send(0x2F);
+[e ( _usart_send (1 -> -> 47 `i `uc ]
+"140
+[; ;zb_znp.c: 140:     usart_send(0x08);
+[e ( _usart_send (1 -> -> 8 `i `uc ]
+"141
+[; ;zb_znp.c: 141:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"142
+[; ;zb_znp.c: 142:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"143
+[; ;zb_znp.c: 143:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"144
+[; ;zb_znp.c: 144:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"145
+[; ;zb_znp.c: 145:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"146
+[; ;zb_znp.c: 146:     usart_send(0x22);
+[e ( _usart_send (1 -> -> 34 `i `uc ]
+"147
+[; ;zb_znp.c: 147:     wait_for_status(0x6F08, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 28424 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"148
+[; ;zb_znp.c: 148: }
+[e :UE 85 ]
+}
+"150
+[; ;zb_znp.c: 150: void znp_init(znp_msg_cb_t callback) {
+[v _znp_init `(v ~T0 @X0 1 ef1`*F827 ]
+{
+[e :U _znp_init ]
+[v _callback `*F832 ~T0 @X0 1 r1 ]
+[f ]
+"151
+[; ;zb_znp.c: 151:     _zb_znp_cb = callback;
+[e = __zb_znp_cb _callback ]
+"154
+[; ;zb_znp.c: 154:     TRISBbits.TRISB3 = 0;
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+"155
+[; ;zb_znp.c: 155:     PORTBbits.RB3 = 0;
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
+"157
+[; ;zb_znp.c: 157:     usart_init();
+[e ( _usart_init ..  ]
+"158
+[; ;zb_znp.c: 158:     usart_add_isr_handler(znp_usart_event_handler);
+[e ( _usart_add_isr_handler (1 &U _znp_usart_event_handler ]
+"159
+[; ;zb_znp.c: 159: }
+[e :UE 86 ]
+}
+"161
+[; ;zb_znp.c: 161: void znp_hard_reset(void) {
+[v _znp_hard_reset `(v ~T0 @X0 1 ef ]
+{
+[e :U _znp_hard_reset ]
+[f ]
+"162
+[; ;zb_znp.c: 162:     PORTBbits.RB3 = 0;
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
+"163
+[; ;zb_znp.c: 163:     _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"164
+[; ;zb_znp.c: 164:     PORTBbits.RB3 = 1;
+[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
+"165
+[; ;zb_znp.c: 165:     wait_for_msg(0x4180);
+[e ( _wait_for_msg (1 -> -> 16768 `i `ui ]
+"166
+[; ;zb_znp.c: 166: }
+[e :UE 87 ]
+}
+"168
+[; ;zb_znp.c: 168: void znp_af_register(uint8_t endpoint) {
+[v _znp_af_register `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _znp_af_register ]
+[v _endpoint `uc ~T0 @X0 1 r1 ]
+[f ]
+"169
+[; ;zb_znp.c: 169:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"170
+[; ;zb_znp.c: 170:     usart_send(0x09);
+[e ( _usart_send (1 -> -> 9 `i `uc ]
+"171
+[; ;zb_znp.c: 171:     usart_send(0x24);
+[e ( _usart_send (1 -> -> 36 `i `uc ]
+"172
+[; ;zb_znp.c: 172:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"173
+[; ;zb_znp.c: 173:     usart_send(endpoint);
+[e ( _usart_send (1 _endpoint ]
+"174
+[; ;zb_znp.c: 174:     usart_send(0x04);
+[e ( _usart_send (1 -> -> 4 `i `uc ]
+"175
+[; ;zb_znp.c: 175:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"176
+[; ;zb_znp.c: 176:     usart_send(0x23);
+[e ( _usart_send (1 -> -> 35 `i `uc ]
+"177
+[; ;zb_znp.c: 177:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"178
+[; ;zb_znp.c: 178:     usart_send(0x89);
+[e ( _usart_send (1 -> -> 137 `i `uc ]
+"179
+[; ;zb_znp.c: 179:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"180
+[; ;zb_znp.c: 180:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"181
+[; ;zb_znp.c: 181:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"182
+[; ;zb_znp.c: 182:     usart_send(0x83 ^ endpoint);
+[e ( _usart_send (1 -> ^ -> 131 `i -> _endpoint `i `uc ]
+"183
+[; ;zb_znp.c: 183:     wait_for_status(0x6400, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 25600 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"184
+[; ;zb_znp.c: 184: }
+[e :UE 88 ]
+}
+"186
+[; ;zb_znp.c: 186: void znp_zdo_startup_from_app(void) {
+[v _znp_zdo_startup_from_app `(v ~T0 @X0 1 ef ]
+{
+[e :U _znp_zdo_startup_from_app ]
+[f ]
+"187
+[; ;zb_znp.c: 187:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"188
+[; ;zb_znp.c: 188:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"189
+[; ;zb_znp.c: 189:     usart_send(0x25);
+[e ( _usart_send (1 -> -> 37 `i `uc ]
+"190
+[; ;zb_znp.c: 190:     usart_send(0x40);
+[e ( _usart_send (1 -> -> 64 `i `uc ]
+"191
+[; ;zb_znp.c: 191:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"192
+[; ;zb_znp.c: 192:     usart_send(0x64);
+[e ( _usart_send (1 -> -> 100 `i `uc ]
+"193
+[; ;zb_znp.c: 193:     wait_for_msg(0x4F80);
+[e ( _wait_for_msg (1 -> -> 20352 `i `ui ]
+"194
+[; ;zb_znp.c: 194: }
+[e :UE 89 ]
+}
+"196
+[; ;zb_znp.c: 196: void znp_af_data_request(uint16_t dst_addr,
+[v _znp_af_data_request `(v ~T0 @X0 1 ef6`ui`uc`ui`*uc`uc`a ]
+"201
+[; ;zb_znp.c: 201:                          _Bool wait_for_rsps) {
+{
+[e :U _znp_af_data_request ]
+"196
+[; ;zb_znp.c: 196: void znp_af_data_request(uint16_t dst_addr,
+[v _dst_addr `ui ~T0 @X0 1 r1 ]
+"197
+[; ;zb_znp.c: 197:                          uint8_t endpoint,
+[v _endpoint `uc ~T0 @X0 1 r2 ]
+"198
+[; ;zb_znp.c: 198:                          uint16_t cluster_id,
+[v _cluster_id `ui ~T0 @X0 1 r3 ]
+"199
+[; ;zb_znp.c: 199:                          uint8_t* data,
+[v _data `*uc ~T0 @X0 1 r4 ]
+"200
+[; ;zb_znp.c: 200:                          uint8_t len,
+[v _len `uc ~T0 @X0 1 r5 ]
+"201
+[; ;zb_znp.c: 201:                          _Bool wait_for_rsps) {
+[v _wait_for_rsps `a ~T0 @X0 1 r6 ]
+[f ]
+"202
+[; ;zb_znp.c: 202:     uint8_t fcs_calc = 0x2A;
+[v _fcs_calc `uc ~T0 @X0 1 a ]
+[e = _fcs_calc -> -> 42 `i `uc ]
+"203
+[; ;zb_znp.c: 203:     if (data == (0)) len = 0;
+[e $ ! == _data -> -> 0 `i `*uc 91  ]
+[e = _len -> -> 0 `i `uc ]
+[e :U 91 ]
+"204
+[; ;zb_znp.c: 204:     fcs_calc ^= 10 + len;
+[e =^ _fcs_calc -> + -> 10 `i -> _len `i `uc ]
+"205
+[; ;zb_znp.c: 205:     fcs_calc ^= len;
+[e =^ _fcs_calc -> _len `uc ]
+"206
+[; ;zb_znp.c: 206:     fcs_calc ^= ((dst_addr) & 0xFF);
+[e =^ _fcs_calc -> & _dst_addr -> -> 255 `i `ui `uc ]
+"207
+[; ;zb_znp.c: 207:     fcs_calc ^= (((dst_addr) >> 8) & 0xFF);
+[e =^ _fcs_calc -> & >> _dst_addr -> 8 `i -> -> 255 `i `ui `uc ]
+"208
+[; ;zb_znp.c: 208:     fcs_calc ^= ((cluster_id) & 0xFF);
+[e =^ _fcs_calc -> & _cluster_id -> -> 255 `i `ui `uc ]
+"209
+[; ;zb_znp.c: 209:     fcs_calc ^= (((cluster_id) >> 8) & 0xFF);
+[e =^ _fcs_calc -> & >> _cluster_id -> 8 `i -> -> 255 `i `ui `uc ]
+"211
+[; ;zb_znp.c: 211:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"212
+[; ;zb_znp.c: 212:     usart_send(10 + len);
+[e ( _usart_send (1 -> + -> 10 `i -> _len `i `uc ]
+"213
+[; ;zb_znp.c: 213:     usart_send(0x24);
+[e ( _usart_send (1 -> -> 36 `i `uc ]
+"214
+[; ;zb_znp.c: 214:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"215
+[; ;zb_znp.c: 215:     usart_send(((dst_addr) & 0xFF));
+[e ( _usart_send (1 -> & _dst_addr -> -> 255 `i `ui `uc ]
+"216
+[; ;zb_znp.c: 216:     usart_send((((dst_addr) >> 8) & 0xFF));
+[e ( _usart_send (1 -> & >> _dst_addr -> 8 `i -> -> 255 `i `ui `uc ]
+"217
+[; ;zb_znp.c: 217:     usart_send(endpoint);
+[e ( _usart_send (1 _endpoint ]
+"218
+[; ;zb_znp.c: 218:     usart_send(endpoint);
+[e ( _usart_send (1 _endpoint ]
+"219
+[; ;zb_znp.c: 219:     usart_send(((cluster_id) & 0xFF));
+[e ( _usart_send (1 -> & _cluster_id -> -> 255 `i `ui `uc ]
+"220
+[; ;zb_znp.c: 220:     usart_send((((cluster_id) >> 8) & 0xFF));
+[e ( _usart_send (1 -> & >> _cluster_id -> 8 `i -> -> 255 `i `ui `uc ]
+"221
+[; ;zb_znp.c: 221:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"222
+[; ;zb_znp.c: 222:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"223
+[; ;zb_znp.c: 223:     usart_send(0x0F);
+[e ( _usart_send (1 -> -> 15 `i `uc ]
+"224
+[; ;zb_znp.c: 224:     usart_send(len);
+[e ( _usart_send (1 _len ]
+"225
+[; ;zb_znp.c: 225:     for (uint8_t i = 0; i < len; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 95  ]
+[e :U 92 ]
+{
+"226
+[; ;zb_znp.c: 226:         usart_send(data[i]);
+[e ( _usart_send (1 *U + _data * -> _i `ux -> -> # *U _data `ui `ux ]
+"227
+[; ;zb_znp.c: 227:         fcs_calc ^= data[i];
+[e =^ _fcs_calc -> *U + _data * -> _i `ux -> -> # *U _data `ui `ux `uc ]
+"228
+[; ;zb_znp.c: 228:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 95 ]
+[e $ < -> _i `i -> _len `i 92  ]
+[e :U 93 ]
+}
+"229
+[; ;zb_znp.c: 229:     usart_send(fcs_calc);
+[e ( _usart_send (1 _fcs_calc ]
+"231
+[; ;zb_znp.c: 231:     if (wait_for_rsps)
+[e $ ! != -> _wait_for_rsps `i -> 0 `i 96  ]
+"232
+[; ;zb_znp.c: 232:         wait_for_status(0x6401, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 25601 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+[e :U 96 ]
+"233
+[; ;zb_znp.c: 233: }
+[e :UE 90 ]
+}
+"235
+[; ;zb_znp.c: 235: void znp_router_start(znp_router_start_opt_t start_opt) {
+[v _znp_router_start `(v ~T0 @X0 1 ef1`E716 ]
+{
+[e :U _znp_router_start ]
+[v _start_opt `E716 ~T0 @X0 1 r1 ]
+[f ]
+"236
+[; ;zb_znp.c: 236:     znp_hard_reset();
+[e ( _znp_hard_reset ..  ]
+"237
+[; ;zb_znp.c: 237:     switch (start_opt) {
+[e $U 99  ]
+{
+"238
+[; ;zb_znp.c: 238:         case ROUTER_START_NEW_NETWORK:
+[e :U 100 ]
+"239
+[; ;zb_znp.c: 239:             znp_set_startopt(((1 << 0) | (1 << 1)));
+[e ( _znp_set_startopt (1 -> | << -> 1 `i -> 0 `i << -> 1 `i -> 1 `i `uc ]
+"240
+[; ;zb_znp.c: 240:             znp_set_logical_type();
+[e ( _znp_set_logical_type ..  ]
+"241
+[; ;zb_znp.c: 241:             znp_set_channels();
+[e ( _znp_set_channels ..  ]
+"242
+[; ;zb_znp.c: 242:         case ROUTER_START_REJOIN:
+[e :U 101 ]
+"243
+[; ;zb_znp.c: 243:             znp_zdo_startup_from_app();
+[e ( _znp_zdo_startup_from_app ..  ]
+"244
+[; ;zb_znp.c: 244:             break;
+[e $U 98  ]
+"245
+[; ;zb_znp.c: 245:         default:
+[e :U 102 ]
+"246
+[; ;zb_znp.c: 246:             break;
+[e $U 98  ]
+"247
+[; ;zb_znp.c: 247:     }
+}
+[e $U 98  ]
+[e :U 99 ]
+[e [\ -> _start_opt `ui , $ -> . `E716 0 `ui 100
+ , $ -> . `E716 1 `ui 101
+ 102 ]
+[e :U 98 ]
+"248
+[; ;zb_znp.c: 248:     znp_af_register(0x01);
+[e ( _znp_af_register (1 -> -> 1 `i `uc ]
+"249
+[; ;zb_znp.c: 249:     znp_af_register(0x02);
+[e ( _znp_af_register (1 -> -> 2 `i `uc ]
+"250
+[; ;zb_znp.c: 250:     znp_af_register(0x03);
+[e ( _znp_af_register (1 -> -> 3 `i `uc ]
+"251
+[; ;zb_znp.c: 251:     znp_af_register(0x04);
+[e ( _znp_af_register (1 -> -> 4 `i `uc ]
+"252
+[; ;zb_znp.c: 252: }
+[e :UE 97 ]
+}

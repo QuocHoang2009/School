@@ -1,0 +1,1092 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F1613 `(v ~T0 @X0 0 tf3`ui`*uc`uc ]
+"16 zb_znp.c
+[; ;zb_znp.c: 16: } znp_state = SOP_STATE;
+[c E1617 0 1 2 3 4 5 .. ]
+[n E1617 . SOP_STATE LEN_STATE CMD0_STATE CMD1_STATE DATA_STATE FCS_STATE  ]
+"85
+[; ;zb_znp.c: 85: void znp_usart_event_handler(usart_event_t rx_event, void* event_data) {
+[c E1536 0 1 .. ]
+[n E1536 . USART_RX_DATA USART_RX_CMPLT  ]
+"18 ./usart.h
+[; ;./usart.h: 18:     void usart_send(uint8_t c);
+[v _usart_send `(v ~T0 @X0 0 ef1`uc ]
+"118 ./zb_znp.h
+[; ;./zb_znp.h: 118:     void znp_hard_reset(void);
+[v _znp_hard_reset `(v ~T0 @X0 0 ef ]
+[v F1649 `(v ~T0 @X0 0 tf3`ui`*uc`uc ]
+[v F1654 `(v ~T0 @X0 0 tf3`ui`*uc`uc ]
+"1609 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1609:     struct {
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"1608
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1608: typedef union {
+[u S58 `S59 1 ]
+[n S58 . . ]
+"1620
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1620: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
+[v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
+"359
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 359:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"358
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 358: typedef union {
+[u S11 `S12 1 ]
+[n S11 . . ]
+"370
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 370: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
+[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
+"17 ./usart.h
+[; ;./usart.h: 17:     void usart_init(void);
+[v _usart_init `(v ~T0 @X0 0 ef ]
+[v F1565 `(v ~T0 @X0 0 tf2`E1536`*v ]
+"34 ./it_handle.h
+[; ;./it_handle.h: 34:     void usart_add_isr_handler(usart_rx_isr_t handler);
+[v _usart_add_isr_handler `(v ~T0 @X0 0 ef1`*F1565 ]
+[v F38 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.35\pic\include\builtins.h
+[v __delay `JF38 ~T0 @X0 0 e ]
+[p i __delay ]
+"240 zb_znp.c
+[; ;zb_znp.c: 240: void znp_router_start(znp_router_start_opt_t start_opt) {
+[c E1505 0 1 .. ]
+[n E1505 . ROUTER_START_NEW_NETWORK ROUTER_START_REJOIN  ]
+"18 ./main.h
+[p x FOSC  =  INTRC_NOCLKOUT ]
+"19
+[p x WDTE  =  OFF        ]
+"20
+[p x PWRTE  =  OFF       ]
+"21
+[p x MCLRE  =  ON        ]
+"22
+[p x CP  =  OFF          ]
+"23
+[p x CPD  =  OFF         ]
+"24
+[p x BOREN  =  OFF       ]
+"25
+[p x IESO  =  ON         ]
+"26
+[p x FCMEN  =  OFF       ]
+"27
+[p x LVP  =  OFF         ]
+"30
+[p x BOR4V  =  BOR40V    ]
+"31
+[p x WRT  =  OFF         ]
+"55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"231
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 231: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"293
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 293: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"355
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 355: __asm("PORTD equ 08h");
+[; <" PORTD equ 08h ;# ">
+"417
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 417: __asm("PORTE equ 09h");
+[; <" PORTE equ 09h ;# ">
+"455
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 455: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"462
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 462: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"540
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 540: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"596
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 596: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"653
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 653: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"660
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 660: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"667
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 667: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"674
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 674: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"768
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 768: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"775
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 775: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"846
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 846: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"853
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 853: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"923
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 923: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"930
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 930: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"937
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 937: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"944
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 944: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"1041
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1041: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"1136
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1136: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"1143
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1143: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"1150
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1150: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"1157
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1157: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"1164
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1164: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"1171
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1171: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1241
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1241: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1248
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1248: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1349
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1349: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1419
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1419: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1481
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1481: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1543
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1543: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1605
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1605: __asm("TRISD equ 088h");
+[; <" TRISD equ 088h ;# ">
+"1667
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1667: __asm("TRISE equ 089h");
+[; <" TRISE equ 089h ;# ">
+"1705
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1705: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1761
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1761: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1818
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1818: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1865
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1865: __asm("OSCCON equ 08Fh");
+[; <" OSCCON equ 08Fh ;# ">
+"1930
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1930: __asm("OSCTUNE equ 090h");
+[; <" OSCTUNE equ 090h ;# ">
+"1982
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 1982: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"2044
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2044: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"2051
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2051: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"2058
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2058: __asm("SSPMSK equ 093h");
+[; <" SSPMSK equ 093h ;# ">
+"2063
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2063: __asm("MSK equ 093h");
+[; <" MSK equ 093h ;# ">
+"2180
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2180: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"2349
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2349: __asm("WPUB equ 095h");
+[; <" WPUB equ 095h ;# ">
+"2419
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2419: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"2489
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2489: __asm("VRCON equ 097h");
+[; <" VRCON equ 097h ;# ">
+"2559
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2559: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"2645
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2645: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"2707
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2707: __asm("SPBRGH equ 09Ah");
+[; <" SPBRGH equ 09Ah ;# ">
+"2777
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2777: __asm("PWM1CON equ 09Bh");
+[; <" PWM1CON equ 09Bh ;# ">
+"2847
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2847: __asm("ECCPAS equ 09Ch");
+[; <" ECCPAS equ 09Ch ;# ">
+"2929
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2929: __asm("PSTRCON equ 09Dh");
+[; <" PSTRCON equ 09Dh ;# ">
+"2973
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2973: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2980
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 2980: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"3014
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3014: __asm("WDTCON equ 0105h");
+[; <" WDTCON equ 0105h ;# ">
+"3067
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3067: __asm("CM1CON0 equ 0107h");
+[; <" CM1CON0 equ 0107h ;# ">
+"3132
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3132: __asm("CM2CON0 equ 0108h");
+[; <" CM2CON0 equ 0108h ;# ">
+"3197
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3197: __asm("CM2CON1 equ 0109h");
+[; <" CM2CON1 equ 0109h ;# ">
+"3248
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3248: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"3253
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3253: __asm("EEDAT equ 010Ch");
+[; <" EEDAT equ 010Ch ;# ">
+"3260
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3260: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"3267
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3267: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"3274
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3274: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"3281
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3281: __asm("SRCON equ 0185h");
+[; <" SRCON equ 0185h ;# ">
+"3338
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3338: __asm("BAUDCTL equ 0187h");
+[; <" BAUDCTL equ 0187h ;# ">
+"3390
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3390: __asm("ANSEL equ 0188h");
+[; <" ANSEL equ 0188h ;# ">
+"3452
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3452: __asm("ANSELH equ 0189h");
+[; <" ANSELH equ 0189h ;# ">
+"3502
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3502: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"3547
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f887.h: 3547: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"7 zb_znp.c
+[; ;zb_znp.c: 7: static znp_msg_cb_t _zb_znp_cb;
+[v __zb_znp_cb `*F1613 ~T0 @X0 1 s ]
+"16
+[; ;zb_znp.c: 16: } znp_state = SOP_STATE;
+[v _znp_state `E1617 ~T0 @X0 1 e ]
+[i _znp_state
+. `E1617 0
+]
+"18
+[; ;zb_znp.c: 18: uint8_t znp_len;
+[v _znp_len `uc ~T0 @X0 1 e ]
+"19
+[; ;zb_znp.c: 19: uint8_t znp_cmd0;
+[v _znp_cmd0 `uc ~T0 @X0 1 e ]
+"20
+[; ;zb_znp.c: 20: uint8_t znp_cmd1;
+[v _znp_cmd1 `uc ~T0 @X0 1 e ]
+"21
+[; ;zb_znp.c: 21: uint8_t znp_fcs;
+[v _znp_fcs `uc ~T0 @X0 1 e ]
+"23
+[; ;zb_znp.c: 23: volatile uint8_t znp_data_rcv[30];
+[v _znp_data_rcv `Vuc ~T0 @X0 -> 30 `i e ]
+"24
+[; ;zb_znp.c: 24: volatile uint8_t znp_data_rcv_index = 0;
+[v _znp_data_rcv_index `Vuc ~T0 @X0 1 e ]
+[i _znp_data_rcv_index
+-> -> 0 `i `uc
+]
+"26
+[; ;zb_znp.c: 26: volatile uint16_t last_cmd_rcv;
+[v _last_cmd_rcv `Vui ~T0 @X0 1 e ]
+"28
+[; ;zb_znp.c: 28: void wait_for_msg(uint16_t cmd) {
+[v _wait_for_msg `(v ~T0 @X0 1 ef1`ui ]
+{
+[e :U _wait_for_msg ]
+[v _cmd `ui ~T0 @X0 1 r1 ]
+[f ]
+"29
+[; ;zb_znp.c: 29:     while (last_cmd_rcv != cmd);
+[e $U 143  ]
+[e :U 144 ]
+[e :U 143 ]
+[e $ != _last_cmd_rcv _cmd 144  ]
+[e :U 145 ]
+"30
+[; ;zb_znp.c: 30:     last_cmd_rcv = 0x00;
+[e = _last_cmd_rcv -> -> 0 `i `ui ]
+"31
+[; ;zb_znp.c: 31: }
+[e :UE 142 ]
+}
+"33
+[; ;zb_znp.c: 33: void wait_for_status(uint16_t cmd, uint8_t offset, uint8_t status_to_wait) {
+[v _wait_for_status `(v ~T0 @X0 1 ef3`ui`uc`uc ]
+{
+[e :U _wait_for_status ]
+[v _cmd `ui ~T0 @X0 1 r1 ]
+[v _offset `uc ~T0 @X0 1 r2 ]
+[v _status_to_wait `uc ~T0 @X0 1 r3 ]
+[f ]
+"34
+[; ;zb_znp.c: 34:     do {
+[e :U 149 ]
+{
+"35
+[; ;zb_znp.c: 35:         wait_for_msg(cmd);
+[e ( _wait_for_msg (1 _cmd ]
+"36
+[; ;zb_znp.c: 36:     } while (znp_data_rcv[offset] != status_to_wait);
+}
+[e $ != -> *U + &U _znp_data_rcv * -> _offset `ux -> -> # *U &U _znp_data_rcv `ui `ux `i -> _status_to_wait `i 149  ]
+[e :U 148 ]
+"37
+[; ;zb_znp.c: 37: }
+[e :UE 146 ]
+}
+"39
+[; ;zb_znp.c: 39: void znp_frame_parser(uint8_t ch) {
+[v _znp_frame_parser `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _znp_frame_parser ]
+[v _ch `uc ~T0 @X0 1 r1 ]
+[f ]
+"40
+[; ;zb_znp.c: 40:     switch (znp_state) {
+[e $U 152  ]
+{
+"41
+[; ;zb_znp.c: 41:         case SOP_STATE:
+[e :U 153 ]
+"42
+[; ;zb_znp.c: 42:             if (ch == 0xFE) {
+[e $ ! == -> _ch `i -> 254 `i 154  ]
+{
+"43
+[; ;zb_znp.c: 43:                 znp_fcs = 0;
+[e = _znp_fcs -> -> 0 `i `uc ]
+"44
+[; ;zb_znp.c: 44:                 znp_data_rcv_index = 0;
+[e = _znp_data_rcv_index -> -> 0 `i `uc ]
+"45
+[; ;zb_znp.c: 45:                 znp_state = LEN_STATE;
+[e = _znp_state . `E1617 1 ]
+"46
+[; ;zb_znp.c: 46:             }
+}
+[e :U 154 ]
+"47
+[; ;zb_znp.c: 47:             break;
+[e $U 151  ]
+"48
+[; ;zb_znp.c: 48:         case LEN_STATE:
+[e :U 155 ]
+"49
+[; ;zb_znp.c: 49:             znp_len = ch;
+[e = _znp_len _ch ]
+"50
+[; ;zb_znp.c: 50:             znp_fcs ^= ch;
+[e =^ _znp_fcs -> _ch `uc ]
+"51
+[; ;zb_znp.c: 51:             znp_state = CMD0_STATE;
+[e = _znp_state . `E1617 2 ]
+"52
+[; ;zb_znp.c: 52:             break;
+[e $U 151  ]
+"53
+[; ;zb_znp.c: 53:         case CMD0_STATE:
+[e :U 156 ]
+"54
+[; ;zb_znp.c: 54:             znp_cmd0 = ch;
+[e = _znp_cmd0 _ch ]
+"55
+[; ;zb_znp.c: 55:             znp_fcs ^= ch;
+[e =^ _znp_fcs -> _ch `uc ]
+"56
+[; ;zb_znp.c: 56:             znp_state = CMD1_STATE;
+[e = _znp_state . `E1617 3 ]
+"57
+[; ;zb_znp.c: 57:             break;
+[e $U 151  ]
+"58
+[; ;zb_znp.c: 58:         case CMD1_STATE:
+[e :U 157 ]
+"59
+[; ;zb_znp.c: 59:             znp_cmd1 = ch;
+[e = _znp_cmd1 _ch ]
+"60
+[; ;zb_znp.c: 60:             znp_fcs ^= ch;
+[e =^ _znp_fcs -> _ch `uc ]
+"61
+[; ;zb_znp.c: 61:             znp_state = (znp_len > 0) ? DATA_STATE : FCS_STATE;
+[e = _znp_state -> ? > -> _znp_len `i -> 0 `i : . `E1617 4 . `E1617 5 `E1617 ]
+"62
+[; ;zb_znp.c: 62:             break;
+[e $U 151  ]
+"63
+[; ;zb_znp.c: 63:         case DATA_STATE:
+[e :U 158 ]
+"64
+[; ;zb_znp.c: 64:             znp_data_rcv[znp_data_rcv_index++] = ch;
+[e = *U + &U _znp_data_rcv * -> ++ _znp_data_rcv_index -> -> 1 `i `Vuc `ux -> -> # *U &U _znp_data_rcv `ui `ux _ch ]
+"65
+[; ;zb_znp.c: 65:             znp_fcs ^= ch;
+[e =^ _znp_fcs -> _ch `uc ]
+"66
+[; ;zb_znp.c: 66:             if (znp_data_rcv_index == znp_len)
+[e $ ! == -> _znp_data_rcv_index `i -> _znp_len `i 159  ]
+"67
+[; ;zb_znp.c: 67:                 znp_state = FCS_STATE;
+[e = _znp_state . `E1617 5 ]
+[e :U 159 ]
+"68
+[; ;zb_znp.c: 68:             break;
+[e $U 151  ]
+"69
+[; ;zb_znp.c: 69:         case FCS_STATE:
+[e :U 160 ]
+"70
+[; ;zb_znp.c: 70:             if (znp_fcs == ch) {
+[e $ ! == -> _znp_fcs `i -> _ch `i 161  ]
+{
+"71
+[; ;zb_znp.c: 71:                 last_cmd_rcv = ((uint16_t)(((znp_cmd1) & 0x00FF) + (((znp_cmd0) & 0x00FF) << 8)));
+[e = _last_cmd_rcv -> + & -> _znp_cmd1 `i -> 255 `i << & -> _znp_cmd0 `i -> 255 `i -> 8 `i `ui ]
+"72
+[; ;zb_znp.c: 72:                 _zb_znp_cb(
+[e ( *U __zb_znp_cb (3 , , _last_cmd_rcv -> &U _znp_data_rcv `*uc _znp_len ]
+"77
+[; ;zb_znp.c: 77:             }
+}
+[e :U 161 ]
+"78
+[; ;zb_znp.c: 78:             znp_state = SOP_STATE;
+[e = _znp_state . `E1617 0 ]
+"79
+[; ;zb_znp.c: 79:             break;
+[e $U 151  ]
+"80
+[; ;zb_znp.c: 80:         default:
+[e :U 162 ]
+"81
+[; ;zb_znp.c: 81:             break;
+[e $U 151  ]
+"82
+[; ;zb_znp.c: 82:     }
+}
+[e $U 151  ]
+[e :U 152 ]
+[e [\ -> _znp_state `ui , $ -> . `E1617 0 `ui 153
+ , $ -> . `E1617 1 `ui 155
+ , $ -> . `E1617 2 `ui 156
+ , $ -> . `E1617 3 `ui 157
+ , $ -> . `E1617 4 `ui 158
+ , $ -> . `E1617 5 `ui 160
+ 162 ]
+[e :U 151 ]
+"83
+[; ;zb_znp.c: 83: }
+[e :UE 150 ]
+}
+"85
+[; ;zb_znp.c: 85: void znp_usart_event_handler(usart_event_t rx_event, void* event_data) {
+[v _znp_usart_event_handler `(v ~T0 @X0 1 ef2`E1536`*v ]
+{
+[e :U _znp_usart_event_handler ]
+[v _rx_event `E1536 ~T0 @X0 1 r1 ]
+[v _event_data `*v ~T0 @X0 1 r2 ]
+[f ]
+"86
+[; ;zb_znp.c: 86:     switch (rx_event) {
+[e $U 165  ]
+{
+"87
+[; ;zb_znp.c: 87:         case USART_RX_DATA:
+[e :U 166 ]
+"88
+[; ;zb_znp.c: 88:             znp_frame_parser(*(uint8_t*) event_data);
+[e ( _znp_frame_parser (1 *U -> _event_data `*uc ]
+"89
+[; ;zb_znp.c: 89:             break;
+[e $U 164  ]
+"90
+[; ;zb_znp.c: 90:         case USART_RX_CMPLT:
+[e :U 167 ]
+"91
+[; ;zb_znp.c: 91:             znp_state = SOP_STATE;
+[e = _znp_state . `E1617 0 ]
+"92
+[; ;zb_znp.c: 92:             break;
+[e $U 164  ]
+"93
+[; ;zb_znp.c: 93:         default:
+[e :U 168 ]
+"94
+[; ;zb_znp.c: 94:             break;
+[e $U 164  ]
+"95
+[; ;zb_znp.c: 95:     }
+}
+[e $U 164  ]
+[e :U 165 ]
+[e [\ -> _rx_event `ui , $ -> . `E1536 0 `ui 166
+ , $ -> . `E1536 1 `ui 167
+ 168 ]
+[e :U 164 ]
+"96
+[; ;zb_znp.c: 96: }
+[e :UE 163 ]
+}
+"98
+[; ;zb_znp.c: 98: void znp_set_startopt(uint8_t startopt) {
+[v _znp_set_startopt `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _znp_set_startopt ]
+[v _startopt `uc ~T0 @X0 1 r1 ]
+[f ]
+"99
+[; ;zb_znp.c: 99:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"100
+[; ;zb_znp.c: 100:     usart_send(0x05);
+[e ( _usart_send (1 -> -> 5 `i `uc ]
+"101
+[; ;zb_znp.c: 101:     usart_send(0x21);
+[e ( _usart_send (1 -> -> 33 `i `uc ]
+"102
+[; ;zb_znp.c: 102:     usart_send(0x09);
+[e ( _usart_send (1 -> -> 9 `i `uc ]
+"103
+[; ;zb_znp.c: 103:     usart_send(0x03);
+[e ( _usart_send (1 -> -> 3 `i `uc ]
+"104
+[; ;zb_znp.c: 104:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"105
+[; ;zb_znp.c: 105:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"106
+[; ;zb_znp.c: 106:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"107
+[; ;zb_znp.c: 107:     usart_send(startopt);
+[e ( _usart_send (1 _startopt ]
+"108
+[; ;zb_znp.c: 108:     usart_send(0x2F ^ startopt);
+[e ( _usart_send (1 -> ^ -> 47 `i -> _startopt `i `uc ]
+"109
+[; ;zb_znp.c: 109:     wait_for_status(0x6109, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 24841 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"111
+[; ;zb_znp.c: 111:     znp_hard_reset();
+[e ( _znp_hard_reset ..  ]
+"112
+[; ;zb_znp.c: 112: }
+[e :UE 169 ]
+}
+"114
+[; ;zb_znp.c: 114: void znp_set_logical_type(uint8_t logical_type) {
+[v _znp_set_logical_type `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _znp_set_logical_type ]
+[v _logical_type `uc ~T0 @X0 1 r1 ]
+[f ]
+"115
+[; ;zb_znp.c: 115:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"116
+[; ;zb_znp.c: 116:     usart_send(0x05);
+[e ( _usart_send (1 -> -> 5 `i `uc ]
+"117
+[; ;zb_znp.c: 117:     usart_send(0x21);
+[e ( _usart_send (1 -> -> 33 `i `uc ]
+"118
+[; ;zb_znp.c: 118:     usart_send(0x09);
+[e ( _usart_send (1 -> -> 9 `i `uc ]
+"119
+[; ;zb_znp.c: 119:     usart_send(0x87);
+[e ( _usart_send (1 -> -> 135 `i `uc ]
+"120
+[; ;zb_znp.c: 120:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"121
+[; ;zb_znp.c: 121:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"122
+[; ;zb_znp.c: 122:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"123
+[; ;zb_znp.c: 123:     usart_send(logical_type);
+[e ( _usart_send (1 _logical_type ]
+"124
+[; ;zb_znp.c: 124:     usart_send(0xAB ^ logical_type);
+[e ( _usart_send (1 -> ^ -> 171 `i -> _logical_type `i `uc ]
+"125
+[; ;zb_znp.c: 125:     wait_for_status(0x6109, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 24841 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"126
+[; ;zb_znp.c: 126: }
+[e :UE 170 ]
+}
+"128
+[; ;zb_znp.c: 128: void znp_set_channels(void) {
+[v _znp_set_channels `(v ~T0 @X0 1 ef ]
+{
+[e :U _znp_set_channels ]
+[f ]
+"129
+[; ;zb_znp.c: 129:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"130
+[; ;zb_znp.c: 130:     usart_send(0x05);
+[e ( _usart_send (1 -> -> 5 `i `uc ]
+"131
+[; ;zb_znp.c: 131:     usart_send(0x2F);
+[e ( _usart_send (1 -> -> 47 `i `uc ]
+"132
+[; ;zb_znp.c: 132:     usart_send(0x08);
+[e ( _usart_send (1 -> -> 8 `i `uc ]
+"133
+[; ;zb_znp.c: 133:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"134
+[; ;zb_znp.c: 134:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"135
+[; ;zb_znp.c: 135:     usart_send(0x20);
+[e ( _usart_send (1 -> -> 32 `i `uc ]
+"136
+[; ;zb_znp.c: 136:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"137
+[; ;zb_znp.c: 137:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"138
+[; ;zb_znp.c: 138:     usart_send(0x03);
+[e ( _usart_send (1 -> -> 3 `i `uc ]
+"139
+[; ;zb_znp.c: 139:     wait_for_status(0x6F08, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 28424 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"141
+[; ;zb_znp.c: 141:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"142
+[; ;zb_znp.c: 142:     usart_send(0x05);
+[e ( _usart_send (1 -> -> 5 `i `uc ]
+"143
+[; ;zb_znp.c: 143:     usart_send(0x2F);
+[e ( _usart_send (1 -> -> 47 `i `uc ]
+"144
+[; ;zb_znp.c: 144:     usart_send(0x08);
+[e ( _usart_send (1 -> -> 8 `i `uc ]
+"145
+[; ;zb_znp.c: 145:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"146
+[; ;zb_znp.c: 146:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"147
+[; ;zb_znp.c: 147:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"148
+[; ;zb_znp.c: 148:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"149
+[; ;zb_znp.c: 149:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"150
+[; ;zb_znp.c: 150:     usart_send(0x22);
+[e ( _usart_send (1 -> -> 34 `i `uc ]
+"151
+[; ;zb_znp.c: 151:     wait_for_status(0x6F08, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 28424 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"152
+[; ;zb_znp.c: 152: }
+[e :UE 171 ]
+}
+"154
+[; ;zb_znp.c: 154: void znp_init(znp_msg_cb_t callback) {
+[v _znp_init `(v ~T0 @X0 1 ef1`*F1649 ]
+{
+[e :U _znp_init ]
+[v _callback `*F1654 ~T0 @X0 1 r1 ]
+[f ]
+"155
+[; ;zb_znp.c: 155:     _zb_znp_cb = callback;
+[e = __zb_znp_cb _callback ]
+"158
+[; ;zb_znp.c: 158:     TRISDbits.TRISD4 = 0;
+[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
+"159
+[; ;zb_znp.c: 159:     PORTDbits.RD4 = 0;
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+"161
+[; ;zb_znp.c: 161:     usart_init();
+[e ( _usart_init ..  ]
+"162
+[; ;zb_znp.c: 162:     usart_add_isr_handler(znp_usart_event_handler);
+[e ( _usart_add_isr_handler (1 &U _znp_usart_event_handler ]
+"163
+[; ;zb_znp.c: 163: }
+[e :UE 172 ]
+}
+"165
+[; ;zb_znp.c: 165: void znp_hard_reset(void) {
+[v _znp_hard_reset `(v ~T0 @X0 1 ef ]
+{
+[e :U _znp_hard_reset ]
+[f ]
+"166
+[; ;zb_znp.c: 166:     PORTDbits.RD4 = 0;
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+"167
+[; ;zb_znp.c: 167:     _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"168
+[; ;zb_znp.c: 168:     PORTDbits.RD4 = 1;
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+"169
+[; ;zb_znp.c: 169:     wait_for_msg(0x4180);
+[e ( _wait_for_msg (1 -> -> 16768 `i `ui ]
+"170
+[; ;zb_znp.c: 170: }
+[e :UE 173 ]
+}
+"172
+[; ;zb_znp.c: 172: void znp_af_register(uint8_t endpoint) {
+[v _znp_af_register `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _znp_af_register ]
+[v _endpoint `uc ~T0 @X0 1 r1 ]
+[f ]
+"173
+[; ;zb_znp.c: 173:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"174
+[; ;zb_znp.c: 174:     usart_send(0x09);
+[e ( _usart_send (1 -> -> 9 `i `uc ]
+"175
+[; ;zb_znp.c: 175:     usart_send(0x24);
+[e ( _usart_send (1 -> -> 36 `i `uc ]
+"176
+[; ;zb_znp.c: 176:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"177
+[; ;zb_znp.c: 177:     usart_send(endpoint);
+[e ( _usart_send (1 _endpoint ]
+"178
+[; ;zb_znp.c: 178:     usart_send(0x04);
+[e ( _usart_send (1 -> -> 4 `i `uc ]
+"179
+[; ;zb_znp.c: 179:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"180
+[; ;zb_znp.c: 180:     usart_send(0x23);
+[e ( _usart_send (1 -> -> 35 `i `uc ]
+"181
+[; ;zb_znp.c: 181:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"182
+[; ;zb_znp.c: 182:     usart_send(0x89);
+[e ( _usart_send (1 -> -> 137 `i `uc ]
+"183
+[; ;zb_znp.c: 183:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"184
+[; ;zb_znp.c: 184:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"185
+[; ;zb_znp.c: 185:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"186
+[; ;zb_znp.c: 186:     usart_send(0x83 ^ endpoint);
+[e ( _usart_send (1 -> ^ -> 131 `i -> _endpoint `i `uc ]
+"187
+[; ;zb_znp.c: 187:     wait_for_status(0x6400, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 25600 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+"188
+[; ;zb_znp.c: 188: }
+[e :UE 174 ]
+}
+"190
+[; ;zb_znp.c: 190: void znp_zdo_startup_from_app(void) {
+[v _znp_zdo_startup_from_app `(v ~T0 @X0 1 ef ]
+{
+[e :U _znp_zdo_startup_from_app ]
+[f ]
+"191
+[; ;zb_znp.c: 191:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"192
+[; ;zb_znp.c: 192:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"193
+[; ;zb_znp.c: 193:     usart_send(0x25);
+[e ( _usart_send (1 -> -> 37 `i `uc ]
+"194
+[; ;zb_znp.c: 194:     usart_send(0x40);
+[e ( _usart_send (1 -> -> 64 `i `uc ]
+"195
+[; ;zb_znp.c: 195:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"196
+[; ;zb_znp.c: 196:     usart_send(0x64);
+[e ( _usart_send (1 -> -> 100 `i `uc ]
+"197
+[; ;zb_znp.c: 197:     wait_for_msg(0x4F80);
+[e ( _wait_for_msg (1 -> -> 20352 `i `ui ]
+"198
+[; ;zb_znp.c: 198: }
+[e :UE 175 ]
+}
+"200
+[; ;zb_znp.c: 200: void znp_af_data_request(
+[v _znp_af_data_request `(v ~T0 @X0 1 ef5`uc`ui`*uc`uc`a ]
+"205
+[; ;zb_znp.c: 205:         _Bool wait_for_rsps) {
+{
+[e :U _znp_af_data_request ]
+"201
+[; ;zb_znp.c: 201:         uint8_t endpoint,
+[v _endpoint `uc ~T0 @X0 1 r1 ]
+"202
+[; ;zb_znp.c: 202:         uint16_t cluster_id,
+[v _cluster_id `ui ~T0 @X0 1 r2 ]
+"203
+[; ;zb_znp.c: 203:         uint8_t* data,
+[v _data `*uc ~T0 @X0 1 r3 ]
+"204
+[; ;zb_znp.c: 204:         uint8_t len,
+[v _len `uc ~T0 @X0 1 r4 ]
+"205
+[; ;zb_znp.c: 205:         _Bool wait_for_rsps) {
+[v _wait_for_rsps `a ~T0 @X0 1 r5 ]
+[f ]
+"206
+[; ;zb_znp.c: 206:     uint8_t fcs_calc = 0;
+[v _fcs_calc `uc ~T0 @X0 1 a ]
+[e = _fcs_calc -> -> 0 `i `uc ]
+"207
+[; ;zb_znp.c: 207:     if (data == (0)) len = 0;
+[e $ ! == _data -> -> 0 `i `*uc 177  ]
+[e = _len -> -> 0 `i `uc ]
+[e :U 177 ]
+"208
+[; ;zb_znp.c: 208:     for (uint8_t i = 0; i < len; i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 181  ]
+[e :U 178 ]
+"209
+[; ;zb_znp.c: 209:         fcs_calc ^= data[i];
+[e =^ _fcs_calc -> *U + _data * -> _i `ux -> -> # *U _data `ui `ux `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 181 ]
+[e $ < -> _i `i -> _len `i 178  ]
+[e :U 179 ]
+}
+"210
+[; ;zb_znp.c: 210:     fcs_calc ^= 10 + len;
+[e =^ _fcs_calc -> + -> 10 `i -> _len `i `uc ]
+"211
+[; ;zb_znp.c: 211:     fcs_calc ^= 0x24;
+[e =^ _fcs_calc -> -> 36 `i `uc ]
+"212
+[; ;zb_znp.c: 212:     fcs_calc ^= 0x01;
+[e =^ _fcs_calc -> -> 1 `i `uc ]
+"213
+[; ;zb_znp.c: 213:     fcs_calc ^= 0x0F;
+[e =^ _fcs_calc -> -> 15 `i `uc ]
+"214
+[; ;zb_znp.c: 214:     fcs_calc ^= len;
+[e =^ _fcs_calc -> _len `uc ]
+"215
+[; ;zb_znp.c: 215:     fcs_calc ^= ((cluster_id) & 0xFF);
+[e =^ _fcs_calc -> & _cluster_id -> -> 255 `i `ui `uc ]
+"216
+[; ;zb_znp.c: 216:     fcs_calc ^= (((cluster_id) >> 8) & 0xFF);
+[e =^ _fcs_calc -> & >> _cluster_id -> 8 `i -> -> 255 `i `ui `uc ]
+"218
+[; ;zb_znp.c: 218:     usart_send(0xFE);
+[e ( _usart_send (1 -> -> 254 `i `uc ]
+"219
+[; ;zb_znp.c: 219:     usart_send(10 + len);
+[e ( _usart_send (1 -> + -> 10 `i -> _len `i `uc ]
+"220
+[; ;zb_znp.c: 220:     usart_send(0x24);
+[e ( _usart_send (1 -> -> 36 `i `uc ]
+"221
+[; ;zb_znp.c: 221:     usart_send(0x01);
+[e ( _usart_send (1 -> -> 1 `i `uc ]
+"222
+[; ;zb_znp.c: 222:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"223
+[; ;zb_znp.c: 223:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"224
+[; ;zb_znp.c: 224:     usart_send(endpoint);
+[e ( _usart_send (1 _endpoint ]
+"225
+[; ;zb_znp.c: 225:     usart_send(endpoint);
+[e ( _usart_send (1 _endpoint ]
+"226
+[; ;zb_znp.c: 226:     usart_send(((cluster_id) & 0xFF));
+[e ( _usart_send (1 -> & _cluster_id -> -> 255 `i `ui `uc ]
+"227
+[; ;zb_znp.c: 227:     usart_send((((cluster_id) >> 8) & 0xFF));
+[e ( _usart_send (1 -> & >> _cluster_id -> 8 `i -> -> 255 `i `ui `uc ]
+"228
+[; ;zb_znp.c: 228:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"229
+[; ;zb_znp.c: 229:     usart_send(0x00);
+[e ( _usart_send (1 -> -> 0 `i `uc ]
+"230
+[; ;zb_znp.c: 230:     usart_send(0x0F);
+[e ( _usart_send (1 -> -> 15 `i `uc ]
+"231
+[; ;zb_znp.c: 231:     usart_send(len);
+[e ( _usart_send (1 _len ]
+"232
+[; ;zb_znp.c: 232:     for (uint8_t i = 0; i < len; i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 185  ]
+[e :U 182 ]
+"233
+[; ;zb_znp.c: 233:         usart_send(data[i]);
+[e ( _usart_send (1 *U + _data * -> _i `ux -> -> # *U _data `ui `ux ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 185 ]
+[e $ < -> _i `i -> _len `i 182  ]
+[e :U 183 ]
+}
+"234
+[; ;zb_znp.c: 234:     usart_send(fcs_calc);
+[e ( _usart_send (1 _fcs_calc ]
+"236
+[; ;zb_znp.c: 236:     if (wait_for_rsps)
+[e $ ! != -> _wait_for_rsps `i -> 0 `i 186  ]
+"237
+[; ;zb_znp.c: 237:         wait_for_status(0x6401, 0, 0x00);
+[e ( _wait_for_status (3 , , -> -> 25601 `i `ui -> -> 0 `i `uc -> -> 0 `i `uc ]
+[e :U 186 ]
+"238
+[; ;zb_znp.c: 238: }
+[e :UE 176 ]
+}
+"240
+[; ;zb_znp.c: 240: void znp_router_start(znp_router_start_opt_t start_opt) {
+[v _znp_router_start `(v ~T0 @X0 1 ef1`E1505 ]
+{
+[e :U _znp_router_start ]
+[v _start_opt `E1505 ~T0 @X0 1 r1 ]
+[f ]
+"241
+[; ;zb_znp.c: 241:     znp_hard_reset();
+[e ( _znp_hard_reset ..  ]
+"242
+[; ;zb_znp.c: 242:     switch (start_opt) {
+[e $U 189  ]
+{
+"243
+[; ;zb_znp.c: 243:         case ROUTER_START_NEW_NETWORK:
+[e :U 190 ]
+"244
+[; ;zb_znp.c: 244:             znp_set_startopt(((1 << 0) | (1 << 1)));
+[e ( _znp_set_startopt (1 -> | << -> 1 `i -> 0 `i << -> 1 `i -> 1 `i `uc ]
+"245
+[; ;zb_znp.c: 245:             znp_set_logical_type(0x01);
+[e ( _znp_set_logical_type (1 -> -> 1 `i `uc ]
+"246
+[; ;zb_znp.c: 246:             znp_set_channels();
+[e ( _znp_set_channels ..  ]
+"247
+[; ;zb_znp.c: 247:         case ROUTER_START_REJOIN:
+[e :U 191 ]
+"248
+[; ;zb_znp.c: 248:             znp_zdo_startup_from_app();
+[e ( _znp_zdo_startup_from_app ..  ]
+"249
+[; ;zb_znp.c: 249:             break;
+[e $U 188  ]
+"250
+[; ;zb_znp.c: 250:         default:
+[e :U 192 ]
+"251
+[; ;zb_znp.c: 251:             break;
+[e $U 188  ]
+"252
+[; ;zb_znp.c: 252:     }
+}
+[e $U 188  ]
+[e :U 189 ]
+[e [\ -> _start_opt `ui , $ -> . `E1505 0 `ui 190
+ , $ -> . `E1505 1 `ui 191
+ 192 ]
+[e :U 188 ]
+"253
+[; ;zb_znp.c: 253:     znp_af_register(0x01);
+[e ( _znp_af_register (1 -> -> 1 `i `uc ]
+"254
+[; ;zb_znp.c: 254:     znp_af_register(0x02);
+[e ( _znp_af_register (1 -> -> 2 `i `uc ]
+"255
+[; ;zb_znp.c: 255:     znp_af_register(0x03);
+[e ( _znp_af_register (1 -> -> 3 `i `uc ]
+"256
+[; ;zb_znp.c: 256:     znp_af_register(0x04);
+[e ( _znp_af_register (1 -> -> 4 `i `uc ]
+"257
+[; ;zb_znp.c: 257: }
+[e :UE 187 ]
+}
